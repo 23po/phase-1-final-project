@@ -3,7 +3,13 @@
 const cards = document.querySelector("#card-container");
 
   
-
+function handleDelete() {
+  for (let i = 0; i < cards.children.length; i++)  {
+  cards.children[i].querySelector('#delete-button').addEventListener('click', (e) => {
+    cards.children[i].innerHTML = " ";
+  })
+}
+}
 
 function addLiker() {
   
@@ -55,14 +61,17 @@ fetch('http://localhost:3000/toys')
             
           <button id ="like-button" class="like-button">♥</button> 
           <span id ="like-count" class="likes">0 likes</span>
+          <button id ="delete-button" class="delete-button"></button> 
         </div>
-          </div>`
+        </div>`
           
           
-          
+        
         }
          
         addLiker();
+        handleDelete();
+        
         console.log(cards); 
         
         
@@ -74,7 +83,7 @@ fetch('http://localhost:3000/toys')
       })
         //document.getElementById('like-button').addEventListener('click', () => console.log("I WS CLIK"))
         console.log(cards);
-       
+        
       }
       function addToy (newObj) {
         fetch ('http://localhost:3000/toys',{
@@ -108,9 +117,11 @@ fetch('http://localhost:3000/toys')
      })
      
     }
-
+    
+   
 fetchToys();
 handleNewToy();
+
 
 
 

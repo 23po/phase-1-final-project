@@ -32,6 +32,13 @@ body {
     
   }
 
+  .delete-button {
+    float: right;
+    height: 100%;
+    width: 25%;
+    
+  }
+
  
   
   
