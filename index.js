@@ -76,7 +76,41 @@ fetch('http://localhost:3000/toys')
         console.log(cards);
        
       }
+      function addToy (newObj) {
+        fetch ('http://localhost:3000/toys',{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+
+          body:JSON.stringify(newObj)
+
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+
+        })
+
+      }
+
+      
+    
+ function handleNewToy () {
+  document.querySelector('#form').addEventListener('submit', (e) => {
+       e.preventDefault();
+        let newObj = {
+          name: e.target.toyName.value,
+          image: e.target.url.value
+    }
+
+    addToy(newObj);
+     })
+     
+    }
+
 fetchToys();
+handleNewToy();
 
 
 
